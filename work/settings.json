@@ -1,0 +1,578 @@
+{
+  "instruments": {
+    "WLDAUD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxAUDCAD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxAUDCHF": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxAUDJPY": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxAUDNZD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxAUDUSD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "OTC_AS51": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "RDBEAR": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "BOOM1000": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "BOOM150N": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "BOOM300N": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "BOOM50": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "BOOM500": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "BOOM600": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "BOOM900": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "cryBTCUSD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "RDBULL": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "CRASH1000": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "CRASH150N": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "CRASH300N": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "CRASH50": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "CRASH500": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "CRASH600": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "CRASH900": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "cryETHUSD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "WLDEUR": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxEURAUD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxEURCAD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxEURCHF": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxEURGBP": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxEURJPY": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxEURNZD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxEURUSD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "WLDGBP": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxGBPAUD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxGBPCAD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxGBPCHF": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxGBPJPY": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxGBPNOK": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxGBPNZD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxGBPUSD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "WLDXAU": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxXAUUSD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "OTC_N225": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "JD10": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "JD100": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "JD25": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "JD50": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "JD75": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxNZDJPY": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxNZDUSD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxXPDUSD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxXPTUSD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "RB100": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "RB200": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxXAGUSD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "stpRNG": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "stpRNG2": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "stpRNG3": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "stpRNG4": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "stpRNG5": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "WLDUSD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxUSDCAD": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxUSDCHF": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxUSDJPY": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxUSDMXN": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxUSDNOK": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxUSDPLN": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "frxUSDSEK": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "1HZ10V": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "R_10": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "1HZ100V": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "R_100": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "1HZ15V": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "1HZ25V": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "R_25": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "1HZ30V": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "1HZ50V": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "R_50": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "1HZ75V": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "R_75": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    },
+    "1HZ90V": {
+      "15m": false,
+      "30m": false,
+      "1h": false,
+      "4h": false,
+      "1D": false
+    }
+  }
+}
