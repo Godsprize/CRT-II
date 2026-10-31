@@ -18,6 +18,8 @@ Leveraged duplicate symbols are hidden when Gate also provides the canonical ins
 
 Gate supplies M15, H1, H4, D1, and W1 directly. Other periods are assembled from complete lower-timeframe candles using Gate MT5 session alignment. Candle groups containing market gaps are discarded.
 
+Before every scan, the bot refreshes Gate's live instrument status and rejects stale candles so closed markets cannot generate alerts.
+
 ## Telegram controls
 
 - Apply a timeframe to every instrument in a market group at once.
