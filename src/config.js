@@ -9,19 +9,20 @@ export function loadConfig(env = process.env) {
       allowedChatIds: listFromEnv(env.TELEGRAM_CHAT_IDS || env.TELEGRAM_CHAT_ID || "")
     },
     alerts: {
-      cooldownSeconds: numberFromEnv(env.ALERT_COOLDOWN_SECONDS, 300)
+      historyRetentionDays: numberFromEnv(env.ALERT_HISTORY_RETENTION_DAYS, 90)
     },
     storage: {
-      settingsPath: env.SETTINGS_PATH || defaultSettingsPath(env)
+      settingsPath: env.SETTINGS_PATH || defaultStoragePath(env, "settings.json"),
+      alertHistoryPath: env.ALERT_HISTORY_PATH || defaultStoragePath(env, "alert-history.json")
     }
   };
 }
 
-function defaultSettingsPath(env) {
+function defaultStoragePath(env, filename) {
   if (env.RAILWAY_VOLUME_MOUNT_PATH) {
-    return `${env.RAILWAY_VOLUME_MOUNT_PATH.replace(/[\\/]+$/, "")}/settings.json`;
+    return `${env.RAILWAY_VOLUME_MOUNT_PATH.replace(/[\\/]+$/, "")}/${filename}`;
   }
-  return "work/settings.json";
+  return `work/${filename}`;
 }
 
 function numberFromEnv(value, fallback) {

@@ -19,6 +19,7 @@ Leveraged duplicate symbols are hidden when Gate also provides the canonical ins
 Gate supplies M15, H1, H4, D1, and W1 directly. Other periods are assembled from complete lower-timeframe candles using Gate MT5 session alignment. Candle groups containing market gaps are discarded.
 
 Before every scan, the bot refreshes Gate's live instrument status and rejects stale candles so closed markets cannot generate alerts.
+Successfully sent signal IDs are persisted, so the same candle alert is not sent again after a restart or redeployment. Alert history is retained for 90 days by default.
 
 ## Telegram controls
 
@@ -50,10 +51,11 @@ Gate public CFD symbols and klines do not require an API key.
 TELEGRAM_BOT_TOKEN=your_bot_token
 TELEGRAM_CHAT_ID=your_chat_id
 TELEGRAM_CHAT_IDS=your_chat_id,second_person_chat_id
-ALERT_COOLDOWN_SECONDS=300
+ALERT_HISTORY_PATH=/data/alert-history.json
+ALERT_HISTORY_RETENTION_DAYS=90
 ```
 
-Attach a Railway volume at `/data` to persist Telegram selections. No public HTTP domain is required. Use `npm start` as the start command.
+Attach a Railway volume at `/data` to persist Telegram selections and sent-alert history. Keep the service at one replica when using the JSON history file. No public HTTP domain is required. Use `npm start` as the start command.
 
 ## Tests
 

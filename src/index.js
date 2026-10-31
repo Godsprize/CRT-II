@@ -31,7 +31,10 @@ if (boundarySymbol) {
 }
 const instrumentSymbols = instruments.map((instrument) => instrument.symbol);
 const notifier = new TelegramNotifier(config.telegram);
-const alertGate = new AlertGate(config.alerts);
+const alertGate = new AlertGate({
+  ...config.alerts,
+  historyPath: config.storage.alertHistoryPath
+});
 const settingsStore = new SettingsStore({
   path: config.storage.settingsPath,
   instruments: instrumentSymbols,
@@ -60,6 +63,7 @@ console.log("Starting Gate CFD CRT alert bot");
 console.log(`Loaded ${instruments.length} Gate CFD instruments`);
 console.log(`Timeframes=${TIMEFRAMES.map((timeframe) => timeframe.label).join(", ")}`);
 console.log(`Settings path=${config.storage.settingsPath}`);
+console.log(`Alert history path=${config.storage.alertHistoryPath}`);
 console.log("All instruments and timeframes are off until enabled in Telegram.");
 
 settingsBot.start();
