@@ -1,6 +1,6 @@
-# Gate CFD CRT Alert Bot
+# Gate CFD and Crypto CRT Alert Bot
 
-Telegram-controlled CRT alert bot using Gate's public MT5-based CFD market data. It sends alerts only and does not place trades.
+Telegram-controlled CRT alert bot using Gate's public CFD and USDT perpetual-futures market data. It sends alerts only and does not place trades.
 
 ## Markets
 
@@ -9,6 +9,12 @@ Telegram-controlled CRT alert bot using Gate's public MT5-based CFD market data.
 - NAS100, US30, US500, and other indices
 - Commodities
 - Stocks
+- Crypto majors, including ZEC
+- Meme coins
+
+Crypto and meme contracts are checked against Gate's live USDT perpetual catalogue at startup. Use **REFRESH CRYPTO LISTS** in Telegram to refresh both groups without restarting the bot; inactive or delisting contracts are omitted. The curated lists can be replaced with `GATE_CRYPTO_CONTRACTS` and `GATE_MEME_CONTRACTS`.
+
+CFD and crypto startup are fault-isolated. If either Gate market-data service is temporarily unavailable, the other market starts and continues operating independently.
 
 Leveraged duplicate symbols are hidden when Gate also provides the canonical instrument.
 
@@ -43,7 +49,7 @@ Charts show up to 50 recent candles.
 3. Run `npm start` or `./start.ps1`.
 4. Send `/start` to the Telegram bot.
 
-Gate public CFD symbols and klines do not require an API key.
+Gate public CFD symbols, perpetual contracts, and klines do not require an API key.
 
 ## Railway variables
 

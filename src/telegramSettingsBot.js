@@ -1,7 +1,7 @@
 import { renderCrtChartPng } from "./chartImage.js";
 
 export class TelegramSettingsBot {
-  constructor({ notifier, settingsStore, instruments, timeframes, allowedChatIds = [], pageSize = 10 }) {
+  constructor({ notifier, settingsStore, instruments, timeframes, allowedChatIds = [], pageSize = 10, onRefreshCrypto }) {
     this.notifier = notifier;
     this.settingsStore = settingsStore;
     this.instruments = instruments;
@@ -9,6 +9,7 @@ export class TelegramSettingsBot {
     this.allowedChatIds = allowedChatIds.map(String);
     this.pageSize = pageSize;
     this.categories = buildCategories(instruments);
+    this.onRefreshCrypto = onRefreshCrypto;
     this.offset = undefined;
     this.stopped = false;
   }
@@ -86,6 +87,25 @@ export class TelegramSettingsBot {
       return;
     }
 
+    if (data === "refresh_crypto") {
+      if (!this.onRefreshCrypto) {
+        await this.notifier.answerCallbackQuery(callback.id, "Crypto refresh is unavailable");
+        return;
+      }
+      try {
+        const result = await this.onRefreshCrypto();
+        await this.updateCallbackMessage(
+          callback,
+          this.mainText(),
+          this.mainKeyboard(chatId),
+          `Refreshed: ${result.crypto} crypto, ${result.memes} memes`
+        );
+      } catch (error) {
+        await this.notifier.answerCallbackQuery(callback.id, `Refresh failed: ${error.message}`.slice(0, 200));
+      }
+      return;
+    }
+
     if (data === "test_alert") {
       const { candles, signal } = testAlertFixture();
       await this.notifier.sendPhoto({
@@ -159,7 +179,7 @@ export class TelegramSettingsBot {
       const [, categoryKey, indexText] = data.split(":");
       const index = Number(indexText);
       const instrument = this.instrumentAt(index);
-      if (!instrument) {
+      if (!instrument || instrument.category !== categoryKey) {
         await this.notifier.answerCallbackQuery(callback.id, "Instrument is no longer available");
         return;
       }
@@ -175,7 +195,7 @@ export class TelegramSettingsBot {
       const [, categoryKey, indexText, timeframeKey] = data.split(":");
       const index = Number(indexText);
       const instrument = this.instrumentAt(index);
-      if (!instrument) {
+      if (!instrument || instrument.category !== categoryKey) {
         await this.notifier.answerCallbackQuery(callback.id, "Instrument is no longer available");
         return;
       }
@@ -222,6 +242,7 @@ export class TelegramSettingsBot {
           }
         ])
     );
+    rows.push([{ text: "REFRESH CRYPTO LISTS", callback_data: "refresh_crypto" }]);
 
     return {
       inline_keyboard: rows
@@ -422,6 +443,11 @@ export class TelegramSettingsBot {
   isAllowedChat(chatId) {
     return this.allowedChatIds.length === 0 || this.allowedChatIds.includes(String(chatId));
   }
+
+  updateInstruments(instruments) {
+    this.instruments = instruments;
+    this.categories = buildCategories(instruments);
+  }
 }
 
 function testAlertFixture() {
@@ -472,6 +498,8 @@ function buildCategories(instruments) {
     { key: "commodities", label: "COMMODITIES" },
     { key: "metals", label: "OTHER METALS" },
     { key: "stocks", label: "STOCKS" },
+    { key: "crypto", label: "CRYPTO" },
+    { key: "meme_coins", label: "MEME COINS" },
     { key: "other", label: "OTHER" }
   ];
 
