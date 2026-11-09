@@ -1,18 +1,20 @@
 import { formatSignalMessage } from "./alertGate.js";
 import { CHART_CANDLE_COUNT, renderCrtChartPng } from "./chartImage.js";
-import { fetchActiveInstruments, fetchCandles } from "./gateCfdClient.js";
 import { detectCrtFormation } from "./detectors/crtDetector.js";
 import { scoreHtfContext } from "./htfScore.js";
 import { higherTimeframeFor } from "./timeframes.js";
 
 export class BoundaryScheduler {
-  constructor({ config, settingsStore, instruments = [], timeframes, notifier, alertGate }) {
+  constructor({ config, settingsStore, instruments = [], timeframes, notifier, alertGate, fetchInstruments, fetchMarketCandles, statusRefreshMs = 60_000 }) {
     this.config = config;
     this.settingsStore = settingsStore;
     this.instrumentBySymbol = new Map(instruments.map((instrument) => [instrument.symbol, instrument]));
     this.timeframes = timeframes;
     this.notifier = notifier;
     this.alertGate = alertGate;
+    this.fetchInstruments = fetchInstruments;
+    this.fetchMarketCandles = fetchMarketCandles;
+    this.statusRefreshMs = statusRefreshMs;
     this.timers = [];
     this.running = new Set();
     this.marketStatusRefreshedAt = 0;
@@ -68,9 +70,9 @@ export class BoundaryScheduler {
   }
 
   async refreshMarketStatuses(now = Date.now()) {
-    if (now - this.marketStatusRefreshedAt < 60_000) return true;
+    if (now - this.marketStatusRefreshedAt < this.statusRefreshMs) return true;
     if (!this.marketStatusPromise) {
-      this.marketStatusPromise = fetchActiveInstruments()
+      this.marketStatusPromise = this.fetchInstruments()
         .then((instruments) => {
           this.instrumentBySymbol = new Map(instruments.map((instrument) => [instrument.symbol, instrument]));
           this.marketStatusRefreshedAt = Date.now();
@@ -93,7 +95,7 @@ export class BoundaryScheduler {
 
     this.running.add(key);
     try {
-      const candles = await fetchCandles({
+      const candles = await this.fetchMarketCandles({
         symbol,
         granularitySeconds: timeframe.seconds,
         count: CHART_CANDLE_COUNT + 2
@@ -144,13 +146,18 @@ export class BoundaryScheduler {
       return scoreHtfContext({ signal, timeframe, candles: [] });
     }
 
-    const candles = await fetchCandles({
+    const candles = await this.fetchMarketCandles({
       symbol,
       granularitySeconds: higherTimeframe.seconds,
       count: 4
     });
     const closedCandles = closedOnly(candles, higherTimeframe.seconds);
     return scoreHtfContext({ signal, timeframe, candles: closedCandles });
+  }
+
+  updateInstruments(instruments) {
+    this.instrumentBySymbol = new Map(instruments.map((instrument) => [instrument.symbol, instrument]));
+    this.marketStatusRefreshedAt = Date.now();
   }
 }
 

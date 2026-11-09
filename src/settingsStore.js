@@ -139,4 +139,12 @@ export class SettingsStore {
       }))
       .filter((selection) => selection.timeframes.length > 0);
   }
+
+  updateInstruments(instruments) {
+    this.instruments = [...new Set(instruments)];
+    for (const chatId of Object.keys(this.state.chats)) {
+      this.state.chats[chatId] = this.normalizeChatState(this.state.chats[chatId]);
+    }
+    this.save();
+  }
 }
